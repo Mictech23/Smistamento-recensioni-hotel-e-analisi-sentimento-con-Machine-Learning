@@ -2,7 +2,7 @@
 Il Feedback dei clienti come dato prezioso tramite il Machine Learning.
 
 Descrizione del Progetto
-Questo progetto nasce come elaborato per il corso di laurea in Informatica (L-31). L'obiettivo è trasformare i feedback non strutturati dei clienti alberghieri in dati azionabili per il management.
+Questo progetto nasce come elaborato per il corso di laurea in Informatica (L-31). L'obiettivo è trasformare i feedback dei clienti alberghieri in dati utili per il managment aziendale.
 
 Il sistema utilizza tecniche di Natural Language Processing (NLP) per analizzare il testo delle recensioni, identificare automaticamente il reparto di competenza (Housekeeping, Reception, Food & Beverage) e valutarne il sentiment (Positivo, Negativo, Neutro).
 

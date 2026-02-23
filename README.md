@@ -4,7 +4,7 @@ Ciao, questo è il mio Project Work per la tesi di laurea in informatica L31
 
 Questo progetto nasce dall'esigenza di automatizzare il processo di gestione dei feedback all'interno del settore alberghiero, ma è applicabile a qualsiasi settore e azienda.
 L'idea alla base è trasformare il testo non strutturato delle recensioni in dati preziosi per l'azienda.
- Utilizzando algoritmi di Machine Learning, ho sviluppato un sistema capace di analizzare il sentiment dei commenti e di smistarli automaticamente verso il reparto di competenza (Housekeeping, Reception o Food & Beverage). Questo permette di ottimizzare i flussi di lavoro, riducendo i tempi di risposta manuale e garantendo che le criticità vengano segnalate immediatamente ai responsabili corretti.
+ Utilizzando algoritmi di Machine Learning, ho sviluppato un sistema capace di analizzare il sentiment dei commenti ( positivo o negativo ) e di smistarli automaticamente verso il reparto di competenza (Housekeeping, Reception o Food & Beverage). Questo permette di ottimizzare i flussi di lavoro, riducendo i tempi di risposta manuale e garantendo che le criticità vengano segnalate immediatamente ai responsabili corretti.
 
 Il cuore tecnologico del progetto si basa su una pipeline di Natural Language Processing (NLP) che utilizza la vettorizzazione TF-IDF e modelli di Regressione Logistica, scelti per il loro eccellente equilibrio tra prestazioni computazionali e interpretabilità dei risultati. L'intero ecosistema è stato realizzato con strumenti Open Source e un'interfaccia grafica moderna per rendere la tecnologia accessibile anche a personale non tecnico.
 
@@ -36,4 +36,5 @@ Qui i comandi da eseguire in ordine cronologico nel terminale:
  pip install -r requirements.txt
  python datagenerator.py
  python ml_pipeline.py
+
  python -m streamlit run Dashboard.py

@@ -10,7 +10,6 @@ Il cuore tecnologico del progetto si basa su una pipeline di Natural Language Pr
 
 Istruzioni per l'utilizzo :
 
-
 Per avviare correttamente il sistema sul tuo computer, segui questi passaggi in ordine cronologico:
 
 1- Preparazione dell'ambiente:
@@ -29,7 +28,7 @@ python ml_pipeline.py
 Infine, lancia l'interfaccia utente con Streamlit. Si aprirà automaticamente una pagina nel tuo browser dove potrai testare il modello inserendo recensioni a mano o caricando file CSV per analisi massive.
 streamlit run Dashboard.py
 
-
+Nota: i file .pkl non sono inclusi nel repository per favorire la riproducibilità locale tramite lo script ml_pipeline.py
 
 Qui i comandi da eseguire in ordine cronologico nel terminale:
 
@@ -40,4 +39,5 @@ Qui i comandi da eseguire in ordine cronologico nel terminale:
  python ml_pipeline.py
 
  python -m streamlit run Dashboard.py
+
 

@@ -20,7 +20,7 @@ def preprocess_text(df: pd.DataFrame) -> pd.Series:
     return texts
 
 def main(csv_path="hotel_reviews.csv"):
-    # Caricamento del dataset generato [cite: 158, 168]
+    # Caricamento del dataset generato
     try:
         df = pd.read_csv(csv_path)
     except FileNotFoundError:
@@ -43,26 +43,26 @@ def main(csv_path="hotel_reviews.csv"):
     # Mapping binario per il sentiment: 0 = Negativo, 1 = Positivo 
     y_sent = df["sentiment"].map({"Positivo": 1, "Negativo": 0})
 
-    # Definizione stop-words italiane personalizzate [cite: 54, 183]
+    # Definizione stop-words italiane personalizzate 
     italian_stop = [
         "il","lo","la","e","a","che","in","un","una","mi","ti","si",
         "per","con","su","del","dei","di","da","al","gli","le","perché",
         "ma","anche","tra","fra","se","sul","sulla","della","delle","degli"
     ]
-    # Manteniamo 'non' per non perdere il senso delle negazioni nei bigrammi [cite: 54, 186]
+    # Manteniamo 'non' per non perdere il senso delle negazioni nei bigrammi
     if "non" in italian_stop:
         italian_stop.remove("non")
 
-    # Vettorizzazione TF-IDF con unigrammi e bigrammi [cite: 132, 185]
+    # Vettorizzazione TF-IDF con unigrammi e bigrammi 
     vect = TfidfVectorizer(ngram_range=(1, 2), stop_words=italian_stop)
     X_vec = vect.fit_transform(X)
 
-    # Split 80% training e 20% test con stratificazione [cite: 193, 195]
+    # Split 80% training e 20% test con stratificazione 
     X_train, X_test, yd_train, yd_test, ys_train, ys_test = train_test_split(
         X_vec, y_dept, y_sent, test_size=0.2, random_state=42, stratify=y_dept
     )
 
-    # Configurazione GridSearch per ottimizzare il parametro di regolarizzazione 'C' [cite: 197]
+    # Configurazione GridSearch per ottimizzare il parametro di regolarizzazione 
     param_grid = {
         'C': [0.1, 1, 10, 100],
         'solver': ['lbfgs']
@@ -76,7 +76,7 @@ def main(csv_path="hotel_reviews.csv"):
     model_dept = grid_dept.best_estimator_
     pred_dept = model_dept.predict(X_test)
 
-    # 2. Modello per il Sentiment (Binario: Positivo/Negativo) [cite: 188, 189]
+    # 2. Modello per il Sentiment (Binario: Positivo/Negativo) 
     grid_sent = GridSearchCV(LogisticRegression(max_iter=1000), param_grid, cv=5, scoring='accuracy')
     grid_sent.fit(X_train, ys_train)
     model_sent = grid_sent.best_estimator_
@@ -102,7 +102,7 @@ def main(csv_path="hotel_reviews.csv"):
     print("\nMatrice di Confusione:\n", confusion_matrix(ys_test, pred_sent))
     print("\nClassification Report:\n", classification_report(ys_test, pred_sent, target_names=["Negativo", "Positivo"]))  # [cite: 242]
 
-    # Salvataggio dei modelli e del vettorizzatore [cite: 205, 206]
+    # Salvataggio dei modelli e del vettorizzatore 
     joblib.dump(vect, "vectorizer.pkl")
     joblib.dump(model_dept, "model_department.pkl")
     joblib.dump(model_sent, "model_sentiment.pkl")
@@ -112,4 +112,5 @@ def main(csv_path="hotel_reviews.csv"):
     print("-"*30)
 
 if __name__ == "__main__":
+
     main()

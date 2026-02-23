@@ -34,7 +34,10 @@ streamlit run Dashboard.py
 Qui i comandi da eseguire in ordine cronologico nel terminale:
 
  pip install -r requirements.txt
+ 
  python datagenerator.py
+ 
  python ml_pipeline.py
 
  python -m streamlit run Dashboard.py
+

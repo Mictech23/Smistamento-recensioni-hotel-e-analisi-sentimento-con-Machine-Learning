@@ -105,7 +105,8 @@ def generate_hotel_data(n=1000, include_neutral=False):
     df = pd.DataFrame(data)
     # salviamo in un file csv all'interno della stessa cartella del progetto
     df.to_csv('hotel_reviews.csv', index=False, columns=['review_id','date','title','body','department','sentiment'])
-    print(f"✅ Dataset generato correttamente con {n} recensioni ricche in 'hotel_reviews.csv'")
+    print(f"✅ Dataset generato correttamente con {n} recensioni in 'hotel_reviews.csv'")
 
 if __name__ == "__main__":
+
     generate_hotel_data()

@@ -17,7 +17,7 @@ Assicurati di avere Python installato. Apri il terminale nella cartella del prog
 pip install -r requirements.txt
 
 2- Generazione dei dati (datagenerator.py):
-Esegui per primo questo script. Verrà creato un file chiamato hotel_reviews.csv contenente 600 recensioni sintetiche bilanciate tra i vari reparti e sentiment, complete di termini ambigui per testare la precisione dei modelli.
+Esegui per primo questo script. Verrà creato un file chiamato hotel_reviews.csv contenente 1000 recensioni sintetiche bilanciate tra i vari reparti e sentiment, complete di termini ambigui per testare la precisione dei modelli.
 python datagenerator.py
 
 3- Addestramento della Pipeline ML (ml_pipeline.py):
@@ -39,5 +39,6 @@ Qui i comandi da eseguire in ordine cronologico nel terminale:
  python ml_pipeline.py
 
  python -m streamlit run Dashboard.py
+
 
 
